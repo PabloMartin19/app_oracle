@@ -3,12 +3,10 @@ import cx_Oracle
 
 # Configuración de la base de datos
 DB_USER = 'remoto'
-DB_PASSWORD = 'remoto'  # Cambia a la contraseña del usuario remoto
-DB_DSN = '192.168.1.23:1521/ORCLCDB'  # Cambia esto al DSN de tu base de datos
-
-# Inicializa la aplicación Flask
+DB_PASSWORD = 'remoto'  
+DB_DSN = '192.168.1.23:1521/ORCLCDB'  
+# Inicializar la aplicación Flask
 app = Flask(__name__)
-app.secret_key = 'mi_clave_secreta'  # Necesaria para las sesiones, cambia por una clave segura.
 
 @app.route('/', methods=['GET', 'POST'])
 def login():
@@ -39,7 +37,7 @@ def tables():
     except cx_Oracle.DatabaseError as e:
         error, = e.args
         print("Error en la conexión a la base de datos:", error.message)
-        tables = []  # Si hay un error, no mostrar tablas.
+        tables = []
 
     finally:
         cursor.close()
@@ -67,8 +65,8 @@ def view_table(table_name):
     except cx_Oracle.DatabaseError as e:
         error, = e.args
         print("Error en la consulta de la tabla:", error.message)
-        rows = []  # Si hay un error, no mostrar filas.
-        column_names = []  # No hay columnas en caso de error.
+        rows = []  
+        column_names = [] 
 
     finally:
         cursor.close()
@@ -77,4 +75,4 @@ def view_table(table_name):
     return render_template('view_table.html', table_name=table_name, rows=rows, column_names=column_names)
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0')  # Cambia el host según tu necesidad
+    app.run(debug=True, host='0.0.0.0')
