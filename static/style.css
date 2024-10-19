@@ -22,14 +22,12 @@ body {
     max-width: 600px;
 }
 
-/* El resto del CSS se mantiene igual */
 h1, h2 {
     text-align: center;
     color: #e0e0e0;
     margin-bottom: 30px;
 }
 
-/* Estilos para el formulario de login */
 .textbox {
     margin-bottom: 20px;
 }
@@ -59,7 +57,6 @@ button:hover {
     background-color: #45a049;
 }
 
-/* Estilos para la lista de tablas */
 ul {
     list-style-type: none;
     padding: 0;
@@ -77,7 +74,6 @@ li:hover {
     background-color: rgba(255, 255, 255, 0.2);
 }
 
-/* Estilos para la tabla de registros */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -96,7 +92,6 @@ th {
     font-weight: bold;
 }
 
-/* Estilos para mensajes flash */
 ul.flashes {
     list-style-type: none;
     padding: 0;
@@ -110,7 +105,6 @@ ul.flashes li {
     border-radius: 5px;
 }
 
-/* Botón de volver */
 a button {
     margin-top: 20px;
     background-color: #008CBA;
@@ -120,7 +114,6 @@ a button:hover {
     background-color: #007B9A;
 }
 
-/* Añade esto a tu archivo style.css */
 .container ul {
     list-style-type: none;
     padding: 0;
