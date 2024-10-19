@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tables</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Accessible Tables for User</h1>
+        <ul>
+            {% for table in tables %}
+                <li><a href="{{ url_for('view_table', table_name=table) }}">{{ table }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
