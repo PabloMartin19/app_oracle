@@ -7,7 +7,7 @@ app.secret_key = 'Ti3jCYj!R6R7kf!X4qt2'
 # Configuración de conexión a Oracle
 def get_connection(username, password):
     try:
-        # Cambia la dirección IP, puerto y servicio de Oracle por los correctos
+        # Cambiaremos la dirección IP dependiendo de la red del servidor
         dsn = cx_Oracle.makedsn("192.168.1.31", 1521, service_name="ORCLCDB")
         connection = cx_Oracle.connect(user=username, password=password, dsn=dsn)
         return connection
@@ -22,7 +22,6 @@ def login():
         username = request.form['username']
         password = request.form['password']
 
-        # Intenta conectar a Oracle
         conn = get_connection(username, password)
         if conn:
             session['username'] = username
@@ -41,7 +40,7 @@ def tables():
         if conn:
             cursor = conn.cursor()
             cursor.execute("SELECT table_name FROM user_tables")
-            tables = [table[0] for table in cursor.fetchall()]  # Extraer el nombre de la tabla de la tupla
+            tables = [table[0] for table in cursor.fetchall()]
             cursor.close()
             conn.close()
             return render_template('tables.html', tables=tables)
